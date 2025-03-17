@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie Seu Convite</title>
+    <link rel="stylesheet" href="./styles/evento.css">
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background: #121212;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dark-mode .container {
+            background: #020000;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        button.mode-toggle {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            background: #a00a7f;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button class="mode-toggle" onclick="toggleMode()">Alternar Modo</button>
+    <div class="container">
+        <h1>Crie Seu Convite</h1>
+        <p>Preencha os detalhes do seu evento e gere um convite especial.</p>
+        <form action="evento.php" method="post" enctype="multipart/form-data">
+            <label for="titulo">Título do Convite:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            
+            <label for="telefone">Telefone para Contato:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+            
+            <label for="descricao">Descrição do Evento:</label>
+            <textarea id="descricao" name="descricao" required></textarea>
+            
+            <label for="inicio">Data de Início:</label>
+            <input type="date" id="inicio" name="inicio" required>
+            
+            <label for="fim">Data de Término:</label>
+            <input type="date" id="fim" name="fim" required>
+            
+            <label for="arquivo">Envie uma imagem para o convite:</label>
+            <input type="file" id="arquivo" name="arquivo" accept=".jpg,.jpeg,.png">
+            
+            <button type="submit">Criar Convite</button>
+        </form>
+    </div>
+</body>
+</html>
